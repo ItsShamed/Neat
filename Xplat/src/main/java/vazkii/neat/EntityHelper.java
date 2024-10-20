@@ -12,15 +12,14 @@ import net.minecraft.world.entity.player.Player;
 import java.util.List;
 
 public class EntityHelper {
+    private static final List<Class<? extends Entity>> boss_classes = List.of(
+            EnderDragon.class,
+            WitherBoss.class,
+            Warden.class,
+            ElderGuardian.class
+    );
 
     public static boolean IsBoss(Entity entity) {
-        List<Class<? extends Entity>> boss_classes = List.of(
-                EnderDragon.class,
-                WitherBoss.class,
-                Warden.class,
-                ElderGuardian.class
-        );
-
         return boss_classes.stream().anyMatch(clazz -> entity.getClass().isAssignableFrom(clazz));
     }
 
